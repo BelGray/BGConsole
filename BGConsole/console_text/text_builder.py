@@ -41,6 +41,7 @@ class StylizedTextBuilder:
             style = self.default_style
         assert isinstance(style, ConsoleTextStyle)
         self.__stylized_text = StylizedTextBuilder.__ansi.build_sgr_sequence(style.parameters()) + str(text) + self.__reset
+        return self
 
     def get_text(self, stylized: bool = True) -> str:
         """
@@ -56,6 +57,7 @@ class StylizedTextBuilder:
     def clear_text(self):
         """Reset current text"""
         self.__stylized_text = StylizedTextBuilder.__ansi.build_sgr_sequence(self.__default_style.parameters()) + "" + self.__reset
+        return self
 
     def add_text_fragment(self, text: str, style: ConsoleTextStyle = None):
         """

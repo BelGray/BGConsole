@@ -55,6 +55,7 @@ class RGB(Color):
         self.red = random.randint(0, 255)
         self.green = random.randint(0, 255)
         self.blue = random.randint(0, 255)
+        return self
 
     def set_color(self, red: int = None, green: int = None, blue: int = None):
         """Set RGB color. If the value of a parameter is None, it will not be changed.
@@ -69,6 +70,7 @@ class RGB(Color):
             self.green = green
         if blue is not None:
             self.blue = blue
+        return self
 
     def __str__(self):
         return f"{str(self.color_code)};2;{self.red};{self.green};{self.blue}"
