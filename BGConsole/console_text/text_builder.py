@@ -68,6 +68,7 @@ class StylizedTextBuilder:
             style = self.default_style
         assert isinstance(style, ConsoleTextStyle)
         self.__stylized_text += StylizedTextBuilder.__ansi.build_sgr_sequence(style.parameters()) + str(text) + self.__reset
+        return self
 
     def set_default_style(self, style: ConsoleTextStyle):
         """Set new default style. Default style is the style applied to text fragments by default.
