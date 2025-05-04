@@ -6,4 +6,4 @@ from .text_builder import StylizedTextBuilder
 
 from .params.parameters import BoldText, UnderlinedText, BlinkingText, Negative, TextColor, TextBackgroundColor, FramedText, SurroundedText, CrossedOutText, Reset
 
-from ansi import ANSI
+from .ansi import ANSI

@@ -1,4 +1,4 @@
-from console_text import ConsoleTextStyle, ANSI
+from .console_text import ConsoleTextStyle, ANSI
 
 
 class Console:

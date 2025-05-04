@@ -1,4 +1,4 @@
-import console_text
+from . import console_text
 from .console import Console
 
 __author__ = "BelGray"

@@ -1,6 +1,6 @@
 import random
 
-from color import Color
+from .color import Color
 
 
 class RGB(Color):

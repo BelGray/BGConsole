@@ -1,5 +1,5 @@
-from colors.color import Color
-from sgr_param import SGRParam
+from .colors.color import Color
+from .sgr_param import SGRParam
 
 class BoldText(SGRParam):
     """Bold text"""
