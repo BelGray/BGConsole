@@ -1,5 +1,5 @@
-from .enums import Color, Param, Tool
-from .console import BGC
+import console_text
+from .console import Console
 
 __author__ = "BelGray"
 __version__ = "1.0.0"

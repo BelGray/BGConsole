@@ -1,45 +1,20 @@
-# -*- coding: utf-8 -*-
-import random
-from enums import Color, Param, Tool
+from console_text import ConsoleTextStyle, ANSI
 
-class BGC:
 
-    @staticmethod
-    def random_color() -> Color:
-        """Choose a random color"""
-        return random.choice(list(Color))
+class Console:
+    """Console features"""
+
+    __ansi = ANSI('\x1b')
 
     @staticmethod
-    def random_param() -> Param:
-        """Choose a random text parameter"""
-        return random.choice(list(Param))
-
-    @staticmethod
-    def write(text: str, param: Param = Param.NULL, color: Color = Color.NULL) -> str:
-        """Print the stylized text
-
-        :argument text: Text
-        :argument param: Text parameter
-        :argument color: Text color
-
-        :returns: Stylized text
-        """
-
-        print(Tool.OFF.value + str(param.value) + str(color.value) + str(text) + Tool.OFF.value)
-        return Tool.OFF.value + str(param.value) + str(color.value) + str(text) + Tool.OFF.value
-
-    @staticmethod
-    def scan(label: str = "", label_param: Param = Param.NULL, label_color: Color = Color.NULL, input_text_param: Param = Param.NULL,
-             input_text_color: Color = Color.NULL) -> str:
+    def stylized_input(prompt: str = "", prompt_style: ConsoleTextStyle = ConsoleTextStyle(), input_text_style: ConsoleTextStyle = ConsoleTextStyle()) -> str:
         """Read a string from stylized console input
 
-        :argument label: Text printed before input
-        :argument label_param: Label text parameter
-        :argument label_color: Label text color
-        :argument input_text_param: Input text parameter
-        :argument input_text_color: Input text color
+        :argument prompt: Text printed before input
+        :argument prompt_style: Prompt text style. Normal text by default
+        :argument input_text_style: Input text style. Normal text by default
 
         :returns: Input string
         """
 
-        return str(input(Tool.OFF.value + str(label_param.value) + str(label_color.value) + str(label) + Tool.OFF.value + str(input_text_param.value) + str(input_text_color.value)))
+        return str(input(Console.__ansi.build_sgr_sequence(prompt_style.parameters()) + str(prompt) + Console.__ansi.build_sgr_sequence(input_text_style.parameters())))
