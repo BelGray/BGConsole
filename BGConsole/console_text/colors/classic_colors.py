@@ -1,4 +1,4 @@
-from BGConsole.console_text.params.colors.color import Color
+from BGConsole.console_text.colors.color import Color
 
 class Black(Color):
     """Black color"""

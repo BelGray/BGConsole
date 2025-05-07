@@ -1,4 +1,4 @@
-from .colors.color import Color
+from BGConsole.console_text.colors.color import Color
 from .sgr_param import SGRParam
 
 class BoldText(SGRParam):
